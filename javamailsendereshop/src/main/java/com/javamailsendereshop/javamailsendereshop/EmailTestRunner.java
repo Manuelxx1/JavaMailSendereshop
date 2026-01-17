@@ -1,4 +1,4 @@
-package com.ejercicioabml.abmlcontroller;
+package com.javamailsendereshop.javamailsendereshop;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import com.abml.jpa.hibernate.service.EmailService;
