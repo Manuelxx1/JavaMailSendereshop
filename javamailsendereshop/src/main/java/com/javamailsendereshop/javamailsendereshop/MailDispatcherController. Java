@@ -1,6 +1,9 @@
 package com.javamailsendereshop.javamailsendereshop;
 import com.javamailsendereshop.javamailsendereshop.service.EmailService;
 import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 @RestController
 public class MailDispatcherController {
 
