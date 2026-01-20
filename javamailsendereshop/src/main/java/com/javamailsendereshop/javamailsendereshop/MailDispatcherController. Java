@@ -1,5 +1,5 @@
 package com.javamailsendereshop.javamailsendereshop;
-
+import com.javamailsendereshop.javamailsendereshop.service.EmailService;
 @RestController
 public class MailDispatcherController {
 
