@@ -1,5 +1,6 @@
 package com.javamailsendereshop.javamailsendereshop;
 import com.javamailsendereshop.javamailsendereshop.service.EmailService;
+import java.util.Map;
 @RestController
 public class MailDispatcherController {
 
