@@ -1,0 +1,33 @@
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import com.javamailsendereshop.javamailsendereshop.service.EmailService;
+import java.util.Map;
+
+@RestController
+@RequestMapping("/api")
+public class EmailTermuxController {
+
+    // Asegúrate de que este sea el nombre de tu servicio de email en Termux
+    @Autowired
+    private EmailService emailService; 
+
+    @PostMapping("/enviar-email")
+    public void recibirDesdeRender(@RequestBody Map<String, String> datos) {
+        try {
+            // Extraemos los datos que vienen desde el mapa que envía Render
+            String correo = datos.get("correo");
+            String estado = datos.get("estado");
+            String producto = datos.get("producto");
+
+            System.out.println("Solicitud recibida desde Render para: " + correo);
+
+            // Llamamos a tu método original que envía el correo real
+            emailService.enviarNotificacion(correo, estado, producto);
+            
+            System.out.println("✅ Email enviado exitosamente vía SMTP desde el celular.");
+            
+        } catch (Exception e) {
+            System.err.println("❌ Error procesando el envío en Termux: " + e.getMessage());
+        }
+    }
+}
