@@ -9,36 +9,33 @@ public class EmailService {
 
     @Autowired
     private JavaMailSender mailSender;
+// MÉTODO NUEVO: Para enviar el detalle completo que armamos en Render
+    public void enviarNotificacionDetallada(String destinatario, String mensajeCompleto, String estado) {
+        String asunto;
+        
+        // Determinamos el asunto según el estado que viene de MP
+        switch (estado != null ? estado : "") {
+            case "approved":
+                asunto = "¡Tu compra fue aprobada! ✅";
+                break;
+            case "rejected":
+                asunto = "Problema con tu pago ❌";
+                break;
+            default:
+                asunto = "Información sobre tu pedido ⏳";
+        }
 
-    public void enviarNotificacion(String destinatario, String estado, String producto) {
-    String asunto;
-    String mensaje;
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setTo(destinatario);
+        mailMessage.setSubject(asunto);
+        mailMessage.setText(mensajeCompleto); // Aquí va todo el texto formateado
 
-    switch (estado) {
-        case "approved":
-            asunto = "Pago aprobado ✅";
-            mensaje = "Tu compra de " + producto + " fue aprobada. ¡Gracias por confiar en nosotros!";
-            break;
-        case "rejected":
-            asunto = "Pago rechazado ❌";
-            mensaje = "Tu compra de " + producto + " fue rechazada. Podés intentar nuevamente.";
-            break;
-        default:
-            asunto = "Pago pendiente ⏳";
-            mensaje = "Tu compra de " + producto + " está pendiente. Te avisaremos cuando se confirme.";
+        try {
+            mailSender.send(mailMessage);
+            System.out.println("✅ Correo detallado enviado a " + destinatario);
+        } catch (Exception e) {
+            System.err.println("❌ Error enviando correo detallado: " + e.getMessage());
+        }
     }
-
-    SimpleMailMessage mailMessage = new SimpleMailMessage();
-    mailMessage.setTo(destinatario);
-    mailMessage.setSubject(asunto);
-    mailMessage.setText(mensaje);
-
-    try {
-        mailSender.send(mailMessage);
-        System.out.println("Correo enviado a " + destinatario);
-    } catch (Exception e) {
-        System.err.println("Error enviando correo: " + e.getMessage());
-    }
-}
 
 }
