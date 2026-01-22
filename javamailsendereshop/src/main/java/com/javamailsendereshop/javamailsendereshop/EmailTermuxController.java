@@ -19,11 +19,12 @@ public class EmailTermuxController {
             String correo = datos.get("correo");
             // Ahora extraemos el mensaje completo que armamos en el Webhook
             String mensaje = datos.get("mensaje");
+            String estado = datos.get("estado"); 
 
             System.out.println("Solicitud recibida desde Render para: " + correo);
 
             // Pasamos el mensaje completo al servicio
-            emailService.enviarNotificacionDetallada(correo, mensaje);
+            emailService.enviarNotificacionDetallada(correo, mensaje, estado);
             
             System.out.println("✅ Email con detalles enviado exitosamente desde Termux.");
             
