@@ -16,17 +16,16 @@ public class EmailTermuxController {
     @PostMapping("/enviar-email")
     public void recibirDesdeRender(@RequestBody Map<String, String> datos) {
         try {
-            // Extraemos los datos que vienen desde el mapa que envía Render
             String correo = datos.get("correo");
-            String estado = datos.get("estado");
-            String producto = datos.get("producto");
+            // Ahora extraemos el mensaje completo que armamos en el Webhook
+            String mensaje = datos.get("mensaje");
 
             System.out.println("Solicitud recibida desde Render para: " + correo);
 
-            // Llamamos a tu método original que envía el correo real
-            emailService.enviarNotificacion(correo, estado, producto);
+            // Pasamos el mensaje completo al servicio
+            emailService.enviarNotificacionDetallada(correo, mensaje);
             
-            System.out.println("✅ Email enviado exitosamente vía SMTP desde el celular.");
+            System.out.println("✅ Email con detalles enviado exitosamente desde Termux.");
             
         } catch (Exception e) {
             System.err.println("❌ Error procesando el envío en Termux: " + e.getMessage());
