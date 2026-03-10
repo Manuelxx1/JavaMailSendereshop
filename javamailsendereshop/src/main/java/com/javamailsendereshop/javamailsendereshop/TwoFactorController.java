@@ -1,4 +1,4 @@
-package com.ejercicioabml.abmlcontroller;
+package com.javamailsendereshop.javamailsendereshop;
 import com.abml.jpa.hibernate.service.TwoFactorRedisService;
 import com.abml.jpa.hibernate.service.TwoFactorMailService;
 import org.springframework.beans.factory.annotation.Autowired;
