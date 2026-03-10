@@ -1,6 +1,6 @@
 package com.javamailsendereshop.javamailsendereshop;
-import com.abml.jpa.hibernate.service.TwoFactorRedisService;
-import com.abml.jpa.hibernate.service.TwoFactorMailService;
+import com.javamailsendereshop.javamailsendereshop.service.TwoFactorRedisService;
+import com.javamailsendereshop.javamailsendereshop.service.TwoFactorMailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
