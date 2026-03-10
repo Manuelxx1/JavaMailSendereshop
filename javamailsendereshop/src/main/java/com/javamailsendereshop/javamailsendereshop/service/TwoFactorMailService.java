@@ -8,15 +8,9 @@ import java.security.SecureRandom;
 public class TwoFactorMailService {
 
     private final JavaMailSender mailSender;
-    private final SecureRandom random = new SecureRandom();
 
     public TwoFactorMailService(JavaMailSender mailSender) {
         this.mailSender = mailSender;
-    }
-
-    public String generateCode() {
-        int code = 100000 + random.nextInt(900000); // 6 dígitos
-        return String.valueOf(code);
     }
 
     public void sendCodeByEmail(String email, String code) {
