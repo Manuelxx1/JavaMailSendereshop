@@ -3,6 +3,7 @@ package com.javamailsendereshop.javamailsendereshop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.javamailsendereshop.javamailsendereshop.service.EmailService;
+import com.javamailsendereshop.javamailsendereshop.service.EmailService;
 import java.util.Map;
 
 @RestController
