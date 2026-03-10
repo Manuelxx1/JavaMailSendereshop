@@ -1,4 +1,4 @@
-package com.abml.jpa.hibernate.service;
+package com.javamailsendereshop.javamailsendereshop.service;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
