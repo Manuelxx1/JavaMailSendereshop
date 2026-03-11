@@ -33,12 +33,12 @@ public class EmailTermuxController {
             System.err.println("❌ Error procesando el envío en Termux: " + e.getMessage());
         }
     }
+   
+    @Autowired
+    private TwoFactorMailService mailService; 
 
-    private final TwoFactorMailService mailService;
 
-    public MailController(TwoFactorMailService mailService) {
-        this.mailService = mailService;
-    }
+    
 
     @PostMapping("/send")
     public ResponseEntity<String> sendMail(@RequestParam String email, @RequestParam String code) {
