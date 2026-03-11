@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import com.javamailsendereshop.javamailsendereshop.service.EmailService;
 import com.javamailsendereshop.javamailsendereshop.service.TwoFactorMailService;
 import java.util.Map;
+import org.springframework.http.ResponseEntity;
+
 
 @RestController
 @RequestMapping("/api")
